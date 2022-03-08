@@ -52,6 +52,7 @@ class _ChatPageState extends State<ChatPage> {
         imageURL: "images/userImage8.jpeg",
         time: "18 Feb"),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +61,21 @@ class _ChatPageState extends State<ChatPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            ListView.builder(
+              itemCount: chatUsers.length,
+              shrinkWrap: true,
+              padding: const EdgeInsets.only(top: 16),
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return ConversationList(
+                  name: chatUsers[index].name,
+                  messageText: chatUsers[index].messageText,
+                  imageUrl: chatUsers[index].imageURL,
+                  time: chatUsers[index].time,
+                  isMessageRead: (index == 0 || index == 3) ? true : false,
+                );
+              },
+            ),
             SafeArea(
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16, top: 10),

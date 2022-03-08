@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.group_work),
-            label: "Channels",
+            label: "FanPage",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_box),
